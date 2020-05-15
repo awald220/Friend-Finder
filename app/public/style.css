@@ -5,4 +5,11 @@ body {
 #main-content{
     width: 80%;
     margin: auto;
+    margin-bottom: 20%;
+}
+
+.btn{
+    width: 100%;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
