@@ -1,4 +1,12 @@
 $(document).ready(function(){
+$("go-to-survey").on(click, function(){
+    event.preventDefault();
+    $.get("/..survey.html", function(data){
+        console.log(data)
+    })
+});
+
+
 
 $("#submit").on(click, function(){
     event.preventDefault();
@@ -23,6 +31,10 @@ $("#submit").on(click, function(){
     // create the new friend in the api/friends page
     $.post("/api/friends", newFriend)
 
+    $.done(function(data){
+        //set attributes
+     
+    })
     
 });
 });
