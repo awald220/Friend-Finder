@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Friend Finder Survey</title>
@@ -14,23 +10,23 @@
 <body>
     <div id="main-content">
         <h1>Survey Question</h1>
-        <form>
+        <form action="/api/friends" method="POST">
             <h4>About You</h4>
             <div class="form-group">
               <label for="exampleFormControlInput1">Name (Required)</label>
-              <input type="name" class="form-control" id="exampleFormControlInput1 name">
+              <input type="name" class="form-control" id="name">
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Link to Photo Image (Required)</label>
-                <input type="url" class="form-control" id="exampleFormControlInput1 photo">
+                <input type="url" class="form-control" id="photo">
             </div>
 
             <h4>Question 1</h4>
             <p>You mind is always buzzing with unexplored ideas and plans.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-1">
+              <select class="form-control" id="question-1">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -44,7 +40,7 @@
             <p>Generally speaking, you rely more on your experience than your imagination.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-2">
+              <select class="form-control" id="question-2">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -58,7 +54,7 @@
             <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-3">
+              <select class="form-control" id="question-3">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -72,7 +68,7 @@
             <p>You rarely do something just out of sheer curiosity.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-4">
+              <select class="form-control" id="question-4">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -86,7 +82,7 @@
             <p>People can rarely upset you.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-5">
+              <select class="form-control" id="question-5">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -100,7 +96,7 @@
             <p>It is often difficult for you to relate to other people's feelings.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-6">
+              <select class="form-control" id="question-6">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -114,7 +110,7 @@
             <p>In discussion, truth should be more important than people's sensitivities.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-7">
+              <select class="form-control" id="question-7">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -128,7 +124,7 @@
             <p>You rarely get carried away by fantasies and ideas.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-8">
+              <select class="form-control" id="question-8">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -142,7 +138,7 @@
             <p>You think that everyone's views should be respected regardless of whether they are supported by facts or not.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-9">
+              <select class="form-control" id="question-9">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -156,7 +152,7 @@
             <p>You feel more energetic after spending time with a group of people.</p>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Example select</label>
-              <select class="form-control" id="exampleFormControlSelect1 question-10">
+              <select class="form-control" id="question-10">
                 <option>Select an Option</option>
                 <option>1 (strongly disagree)</option>
                 <option>2</option>
@@ -169,27 +165,14 @@
             <a class="btn btn-primary btn-lg" id="submit" href="" role="button">Submit</a>
           </form>
 
-          <a href="/..app/data/friends.js">API Friends List | </a>
+          <a href="/api/friends">API Friends List | </a>
           <a href="https://github.com/awald220/Friend-Finder">GitHub Repo</a>
     </div>
 
-  <!-- Materialize Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Meet Your New Best Friend</h4>
-      <h5 id="matchName"></h5>
-      <img id="matchPic" src="" alt="No Image" width = 250px>
-    </div>
-  <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
-  </div>
-</div>
+ 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
     $("#submit").on("click", function() {
@@ -215,8 +198,8 @@
         if (validateForm() == true) {
             //creates a new friend from the values submitted
             var newFriend = {
-                name: $('#name').val().trim(),
-                profilePic: $('#photo').val().trim(),
+                name: $('#name').val(),
+                profilePic: $('#photo').val(),
                 scores: [
                     $('#question-1').val(),
                     $('#question-2').val(),
@@ -230,12 +213,13 @@
                     $('#question-10').val(),
                 ]
             };
+            console.log(newFriend, "hello")
 
             //Grabs current URL of website
             var currentURL = window.location.origin;
 
             //AJAX posts the data to friends API.
-            $.post(currentURL + "/api/friends", newFriend, function(data) {
+            $.post("/api/friends", newFriend, function(data) {
                 //Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#matchName").text(data.name);
                 $("#matchPic").attr("src", data.profilePic);

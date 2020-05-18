@@ -16,6 +16,7 @@ module.exports = function(app){
         var friendCount = 0;
         var bestMatch = 0;
 
+        console.log("req", req.body)
         //runs through current friends list
         for(var i = 0; i < friends.length; i++){
             var scoreDiff = 0;
@@ -30,7 +31,7 @@ module.exports = function(app){
         }
 
         //find the best match
-        for(var i = 0; i < scoresArray.length; i++){
+        for(var i = 0; i < scoresArr.length; i++){
             if(scoresArr[i] <= scoresArr[bestMatch]){
                 bestMatch = i;
             }
@@ -42,5 +43,7 @@ module.exports = function(app){
 
         //send the new submit to the friendsArr
         friends.push(req.body);
+
+        console.log("Best Friend is: ", bestFriend)
     });
 };
