@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Friend Finder Survey</title>
 </head>
@@ -173,7 +176,7 @@
   <!-- Materialize Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Meet Your New BFF</h4>
+      <h4>Meet Your New Best Friend</h4>
       <h5 id="matchName"></h5>
       <img id="matchPic" src="" alt="No Image" width = 250px>
     </div>
@@ -183,7 +186,85 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+<script type="text/javascript" src="js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-<script type="text/javascript" src="logic.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $("#submit").on("click", function() {
+        //form validation
+        function validateForm() {
+            var isValid = true;
+            $('.validate').each(function() {
+                if ($(this).val() === ''){
+                    isValid = false;
+                }
+            });
+
+            $('.browser-default').each(function() {
+                if ($(this).val() === ""){
+                    isValid = false;
+                }
+            });
+
+            return isValid;
+        }
+
+        //if everything is filled
+        if (validateForm() == true) {
+            //creates a new friend from the values submitted
+            var newFriend = {
+                name: $('#name').val().trim(),
+                profilePic: $('#photo').val().trim(),
+                scores: [
+                    $('#question-1').val(),
+                    $('#question-2').val(),
+                    $('#question-3').val(),
+                    $('#question-4').val(),
+                    $('#question-5').val(),
+                    $('#question-6').val(),
+                    $('#question-7').val(),
+                    $('#question-8').val(),
+                    $('#question-9').val(),
+                    $('#question-10').val(),
+                ]
+            };
+
+            //Grabs current URL of website
+            var currentURL = window.location.origin;
+
+            //AJAX posts the data to friends API.
+            $.post(currentURL + "/api/friends", newFriend, function(data) {
+                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $("#matchName").text(data.name);
+                $("#matchPic").attr("src", data.profilePic);
+
+            });
+            // Show the modal with the best match
+                $('.modal').modal();
+
+            //clear form after submission
+            $('#name').val("");
+            $('#photo').val("");
+            $('#question-1').val("");
+            $('#question-2').val("");
+            $('#question-3').val("");
+            $('#question-4').val("");
+            $('#question-5').val("");
+            $('#question-6').val("");
+            $('#question-7').val("");
+            $('#question-8').val("");
+            $('#question-9').val("");
+            $('#question-10').val("");
+        } else {
+            alert("Please fill out ALL fields before submitting survey!")
+        }
+
+        
+    });
+});
+    
+</script>
 </body>
 </html>
