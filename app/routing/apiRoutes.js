@@ -11,7 +11,7 @@ module.exports = function(app){
 
     // post for a new friend
     app.post("/api/friends", function(req, res){
-        var newScores = req.body;
+        var newScores = req.body.scores;
         var scoresArr = [];
         var friendCount = 0;
         var bestMatch = 0;
@@ -30,7 +30,7 @@ module.exports = function(app){
         }
 
         //find the best match
-        for(var i = 0; scoresArray.length; i++){
+        for(var i = 0; i < scoresArray.length; i++){
             if(scoresArr[i] <= scoresArr[bestMatch]){
                 bestMatch = i;
             }
