@@ -24,7 +24,7 @@ Fill in the blanks to be matched with the other friend that you match the best w
 # Deployed Links
 GitHub: https://github.com/awald220/Friend-Finder
 
-Heroku: 
+Heroku: https://peaceful-plateau-74918.herokuapp.com/
 
 # Role in Creating Application
 I did everything that was involved in making this application.
