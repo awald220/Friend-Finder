@@ -16,7 +16,6 @@ module.exports = function(app){
         var friendCount = 0;
         var bestMatch = 0;
 
-        console.log("req", req.body)
         //runs through current friends list
         for(var i = 0; i < friends.length; i++){
             var scoreDiff = 0;
